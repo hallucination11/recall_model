@@ -1,4 +1,5 @@
-.git/
-*.DS_Store
-.idea/
 __pycache__/
+NLP_base/__pycache__/
+.idea/
+NLP_base/.DS_Store
+*.DS_Store
