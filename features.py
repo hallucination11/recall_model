@@ -3,5 +3,6 @@ test_features = [
     'uid',
     'item',
     'gender',
-    'bal'
+    'bal',
+    'item_neg'
 ]
