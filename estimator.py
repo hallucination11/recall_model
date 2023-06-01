@@ -36,7 +36,7 @@ def parse_args():
     parser.add_argument('--loss_type', default='sigmoid')
     parser.add_argument('--temperature', default=0.05)
     parser.add_argument('--task_type', default='binary')
-    parser.add_argument('--margin', default=5)
+    parser.add_argument('--margin', default=0.5)
     return parser.parse_args()
 
 
@@ -100,8 +100,11 @@ if not os.path.exists(saved_model_dir):
 if args.model == "DSSM":
     model = DSSM("DSSM", model_dir=model_dir, embedding_upload_hook=new_hook, high_param=high_param)
 if args.model == "DSSM_Two_Pair_Loss":
-    model = DSSM_Two_Pair_Loss("DSSM_Two_Pair_Loss", model_dir=model_dir, embedding_upload_hook=new_hook, high_param=high_param)
-
+    model = DSSM_Two_Pair_Loss("DSSM_Two_Pair_Loss", model_dir=model_dir, embedding_upload_hook=new_hook,
+                               high_param=high_param)
+if args.model == "DSSM_simple_attentive_fusion":
+    model = DSSM_simple_attentive_fusion("DSSM_simple_attentive_fusion", model_dir=model_dir, embedding_upload_hook=new_hook,
+                               high_param=high_param)
 
 logger.info("start training {} model".format(args.model))
 
