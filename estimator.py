@@ -102,9 +102,13 @@ if args.model == "DSSM":
 if args.model == "DSSM_Two_Pair_Loss":
     model = DSSM_Two_Pair_Loss("DSSM_Two_Pair_Loss", model_dir=model_dir, embedding_upload_hook=new_hook,
                                high_param=high_param)
+if args.model == "DSSM_sample_softmax":
+    model = DSSM_sample_softmax('DSSM_sample_softmax', model_dir=model_dir, embedding_upload_hook=new_hook,
+                                high_param=high_param)
 if args.model == "DSSM_simple_attentive_fusion":
-    model = DSSM_simple_attentive_fusion("DSSM_simple_attentive_fusion", model_dir=model_dir, embedding_upload_hook=new_hook,
-                               high_param=high_param)
+    model = DSSM_simple_attentive_fusion("DSSM_simple_attentive_fusion", model_dir=model_dir,
+                                         embedding_upload_hook=new_hook,
+                                         high_param=high_param)
 
 logger.info("start training {} model".format(args.model))
 
