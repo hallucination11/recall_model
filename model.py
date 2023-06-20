@@ -135,6 +135,8 @@ class DSSM(Model):
         estimator = tf.estimator.Estimator(
             model_dir=self.model_dir,
             model_fn=self.get_model_fn(),
+            # tf.estimator.RunConfig
+            # config=tf.estimator.RunConfig(save_checkpoints_steps=1000, keep_checkpoint_max=0),
             params={
                 'hidden_units': hidden_layers,
                 'feature_columns': all_feature_column,
